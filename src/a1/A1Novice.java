@@ -21,7 +21,7 @@ public class A1Novice {
 			int items = scan.nextInt();
 			double[] list = new double[items];
 						
-			for (int j=0; j<total.length; j++) {
+			for (int j=0; j<list.length; j++) {
 
 				int quantity = scan.nextInt();
 				String name = scan.next();
@@ -45,5 +45,4 @@ public class A1Novice {
 		return sum;
 	}
 
-	
 }
