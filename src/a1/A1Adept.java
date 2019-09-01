@@ -22,36 +22,38 @@ public class A1Adept {
 		int customers = scan.nextInt();
 		
 		double [] total = new double[customers];
-		String[] cusname = new String[customers];
+		String[] firstName = new String[customers];
+		String[] lastName = new String[customers];
 		
 		for (int i=0; i < total.length; i++) {
-			cusname[i] = scan.next() + scan.next();
+			firstName[i] = scan.next();
+			lastName[i] = scan.next();
 			int cart = scan.nextInt();
 			
 			for (int j=0; j < cart; j++) {
 				int howMany = scan.nextInt();
 				String what = scan.next();
 				for (int k=0; k < item; k++) {
-					if (itemName[k] == what) {
+					if (itemName[k].equals(what)) {
 						total[i] += itemPrice[k] * howMany;
 					}
 				}
 			}
 		}
 		
-		String average = calculateValueAve(total, cusname);
-		String min = findValueMin(total, cusname);
-		String max = findValueMax(total, cusname);
+		double average = calculateValueAve(total);
+		int min = findValueMin(total, firstName, lastName);
+		int max = findValueMax(total, firstName, lastName);
 		
-		System.out.println(max);
-		System.out.println(min);
-		System.out.println(average);
+		System.out.println("Biggest: "+ firstName[max]+ " " + lastName[max] + " (" + String.format("%.2f", total[max]) + ")");
+		System.out.println("Smallest: "+ firstName[min]+ " " + lastName[min] + " (" + String.format("%.2f", total[min]) + ")");
+		System.out.println("Average: " + String.format("%.2f", average));
 
 	}
 	
 	
 	
-	static String calculateValueAve(double[] total, String[] cusname) {
+	static double calculateValueAve(double[] total) {
 		
 		double sum = 0;
 		
@@ -59,12 +61,12 @@ public class A1Adept {
 			sum += total[i];
 		}
 		double ave = sum/total.length;
-		return "Average: " + ave;
+		return ave;
 	}
 	
 
 	
-	static String findValueMin(double[] total, String[] cusname) {
+	static int findValueMin(double[] total, String[] firstName, String[] lastName) {
 		
 		double min = total[0];
 		int whichOne = 0;
@@ -75,11 +77,11 @@ public class A1Adept {
 				whichOne = i;
 			}
 		}
-		return "Smallest: " + cusname[whichOne] + " (" + min + ")";
+		return whichOne;
 	}
 	
 	
-	static String findValueMax(double[] total, String[] cusname) {
+	static int findValueMax(double[] total, String[] firstName, String[] lastName) {
 		
 		double max = total[0];
 		int whichOne = 0;
@@ -90,7 +92,7 @@ public class A1Adept {
 				whichOne = i;
 			}
 		}
-		return "Biggest: " + cusname[whichOne] + " (" + max + ")";
+		return whichOne;
 	}
 	
 
