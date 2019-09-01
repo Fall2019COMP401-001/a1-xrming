@@ -40,11 +40,17 @@ public class A1Jedi {
 			for (int j=0; j < items; j++) {
 				int howMany = scan.nextInt();
 				String what = scan.next();
-				if (list[i].name.equals(what)) {
-					list[i].quantity += howMany;
-					list[i].buyers += 1;
+				
+				for (int k=0; k < list.length; k++) {
+					if (list[k].name.equals(what)) {
+						list[k].quantity += howMany;
+						list[k].buyers += 1;
+					}
 				}
 			}
+		}
+		
+		for (int i=0; i < howManyitems; i++) {
 			if (list[i].quantity==0) {
 				System.out.println("No customers bought " + list[i].name);
 			} else {
