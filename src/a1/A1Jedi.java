@@ -7,12 +7,14 @@ public class A1Jedi {
 	static class Item {
 		String name;
 		int quantity;
+		int buy;
 		int buyers;
 		
-		public Item (String n, int q, int b) {
-			this.name = n;
-			this.quantity = q;
-			this.buyers = b;
+		public Item () {
+			this.name = "";
+			this.quantity = 0;
+			this.buy = 0;
+			this.buyers = 0;
 		}
 	}
 
@@ -25,7 +27,7 @@ public class A1Jedi {
 		
 		
 		for (int i=0; i < list.length; i++) {
-			list[i] = new Item("", 0, 0);
+			list[i] = new Item();
 			list[i].name = scan.next();
 			scan.nextDouble();
 		}
@@ -44,10 +46,17 @@ public class A1Jedi {
 				for (int k=0; k < list.length; k++) {
 					if (list[k].name.equals(what)) {
 						list[k].quantity += howMany;
-						list[k].buyers += 1;
+						list[k].buy += 1 ;
+						}
 					}
 				}
+			for (int k=0; k < list.length; k++) {
+				if (list[k].buy > 0) {
+					list[k].buyers += 1;
+					list[k].buy = 0;
+				}
 			}
+			
 		}
 		
 		for (int i=0; i < howManyitems; i++) {
