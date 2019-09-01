@@ -8,7 +8,7 @@ public class A1Novice {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		DecimalFormat df = new DecimalFormat("#.00");
+		DecimalFormat df = new DecimalFormat("#0.00");
 		
 
 		int people = scan.nextInt();
