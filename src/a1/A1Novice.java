@@ -1,11 +1,15 @@
 package a1;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class A1Novice {
+	
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
+		DecimalFormat df = new DecimalFormat("#.00");
+		
 
 		int people = scan.nextInt();
 		
@@ -30,7 +34,7 @@ public class A1Novice {
 			
 			total[i] = sumIt(list);
 			
-			System.out.println(firstName[i] + ". " + lastName[i] + ": " + total[i]);
+			System.out.println(firstName[i] + ". " + lastName[i] + ": " + df.format(total[i]));
 		}
 		
 		
@@ -42,7 +46,7 @@ public class A1Novice {
 		for (int i=0; i<list.length; i++) {
 			sum += list[i];
 		}
-		return Math.round(sum*100.0)/100.;
+		return sum;
 	}
 
 }
